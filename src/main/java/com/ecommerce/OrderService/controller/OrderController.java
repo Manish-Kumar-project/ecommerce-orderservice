@@ -1,5 +1,7 @@
 package com.ecommerce.OrderService.controller;
 
+import com.ecommerce.OrderService.commons.OrderRequest;
+import com.ecommerce.OrderService.commons.OrderResponse;
 import com.ecommerce.OrderService.entities.OrderItem;
 import com.ecommerce.OrderService.repository.OrderRepository;
 import com.ecommerce.OrderService.service.OrderService;
@@ -25,9 +27,9 @@ public class OrderController {
 
 
     @PostMapping(value = "/order")
-    public ResponseEntity<OrderItem> saveCustomer(@RequestBody OrderItem order){
-        OrderItem orderItem = orderService.addOrder(order);
-        return new ResponseEntity<OrderItem>(orderItem, HttpStatus.OK);
+    public ResponseEntity<OrderResponse> saveCustomer(@RequestBody OrderRequest order){
+        OrderResponse orderItem = orderService.addOrder(order);
+        return new ResponseEntity<OrderResponse>(orderItem, HttpStatus.OK);
 
     }
 
