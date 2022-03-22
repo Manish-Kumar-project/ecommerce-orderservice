@@ -32,7 +32,7 @@ public class OrderService {
         //rest call
         //logger.info("Order-Service Request : "+new ObjectMapper().writeValueAsString(request));
         //Payment paymentResponse = template.postForObject(ENDPOINT_URL, payment, Payment.class);
-        Product productResponse = template.postForObject("http://localhost:9090/api/product/product",payment,Product.class);
+        Product productResponse = template.postForObject("http://PRODUCT-SERVICE/api/product/product",payment,Product.class);
         response = productResponse.getProductStatus().equals("success")?"product processing sucessful and orderplaced":"There is a failure in order Api and order added to the cart";
 
         orderRepository.save(order);
