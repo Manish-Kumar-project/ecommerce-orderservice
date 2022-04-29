@@ -3,6 +3,7 @@ package com.ecommerce.OrderService.controller;
 import com.ecommerce.OrderService.commons.OrderRequest;
 import com.ecommerce.OrderService.commons.OrderResponse;
 import com.ecommerce.OrderService.entities.OrderItem;
+import com.ecommerce.OrderService.entities.OrderItems;
 import com.ecommerce.OrderService.repository.OrderRepository;
 import com.ecommerce.OrderService.service.OrderService;
 import org.aspectj.weaver.ast.Or;
@@ -37,5 +38,11 @@ public class OrderController {
     public ResponseEntity<List<OrderItem>> getAllProducts(){
         List<OrderItem> allproducts = orderService.getAllOrders();
         return new ResponseEntity<List<OrderItem>>(allproducts,HttpStatus.OK);
+    }
+
+    @PostMapping(value = "add/member/order")
+    public ResponseEntity<String> saveMemberOrder(@RequestBody OrderItems order){
+        orderService.saveMemberOrder(order);
+        return new ResponseEntity<String>("order saved",HttpStatus.OK);
     }
 }
