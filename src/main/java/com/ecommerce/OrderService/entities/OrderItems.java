@@ -59,8 +59,13 @@ public class OrderItems {
     @Column(name = "product_brand", nullable = false)
     private String productBrand;
 
+
+    @Column(name = "product_quantity", nullable = false)
+    private Integer productQuantity;
+
+
     @Column(name = "product_name")
-    private Date productName;
+    private String productName;
 
     @Column(name = "order_created_by")
     private String orderCreatedBy;
